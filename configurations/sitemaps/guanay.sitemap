@@ -1,0 +1,7 @@
+sitemap demo label="Mi Casa"
+{
+	Frame {
+		Switch item=Light_FF_Entrada label="Luz Entrada" 
+	}
+	
+}
