@@ -8,7 +8,7 @@ sitemap demo label="Mi Casa"
 		Text label="Multimedia" icon="video" {
 
 			Frame label="Multimedia Widgets" {
-				Webview item=VideoWeb url="http://192.168.1.42:8080/webcam.html"  height=12
+				Webview item=VideoWeb url="https://192.168.1.42:8443/webcam.html"  height=12
 			}
 		}
 		
