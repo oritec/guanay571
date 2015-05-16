@@ -1,0 +1,155 @@
+<html>
+<head>
+    <script language="javascript">
+    <!--
+    var count =0;
+    var PTZ_STOP	=1;
+    var TILT_UP		=2;
+    var TILT_UP_STOP=1;
+    var TILT_DOWN	=0;
+    var TILT_DOWN_STOP=3;
+    var PAN_LEFT	=6;
+    var PAN_LEFT_STOP=5;
+    var PAN_RIGHT	=4;
+    var PAN_RIGHT_STOP=7;
+    var PTZ_LEFT_UP	=93;
+    var PTZ_RIGHT_UP=92;
+    var PTZ_LEFT_DOWN=91;
+    var PTZ_RIGHT_DOWN=90;
+    var PTZ_CENTER	=25;
+    var PTZ_VPATROL	=26;
+    var PTZ_VPATROL_STOP=27;
+    var PTZ_HPATROL	=28;
+    var PTZ_HPATROL_STOP=29;
+    var PTZ_PELCO_D_HPATROL=20;
+    var PTZ_PELCO_D_HPATROL_STOP=21;
+    
+    var xx = new Image();
+    
+    function set_M(v,_v)
+    {
+        cameracontrol.param.value = v;
+        cameracontrol.value.value = _v;
+        cameracontrol.submit();
+    }
+    
+    function body_onload()
+    {   	
+        window.status='';
+        set_M(0,8);
+        load_video();
+    }	
+    
+    
+    function reload_image()
+    {
+        
+        var urlstring = "user=admin&pwd=123456&next_url=tempsnapshot.jpg&count=" + count ;
+        xx.src = "http://192.168.1.56:1025/snapshot.cgi?" + urlstring;
+        imgDisplay.src = xx.src;
+        window.status=" ";
+        count++;
+        
+    }
+    
+    function load_video()
+    {
+        window.status=" ";
+        reload_image();
+        setTimeout("reload_image()",300);
+    }
+    
+    function up_onmouseup(oEvent) 
+    {
+        decoder_control(TILT_UP_STOP);
+    }
+    
+    function down_onmousedown(oEvent) 
+    {
+        decoder_control(TILT_DOWN);
+    }
+    
+    function down_onmouseup(oEvent) 
+    {
+    
+        decoder_control(TILT_DOWN_STOP)
+    }
+    
+    
+    function up_onmousedown(oEvent) 
+    {
+        
+        decoder_control(TILT_UP);
+    
+    }
+    
+    
+    function left_onmousedown(oEvent) 
+    {
+        decoder_control(PAN_LEFT);
+    }
+    
+    function left_onmouseup(oEvent) 
+    {
+      decoder_control(PAN_LEFT_STOP);	
+    }
+    
+    function right_onmousedown(oEvent) 
+    {
+        decoder_control(PAN_RIGHT);
+    }
+    
+    function right_onmouseup(oEvent) 
+    {
+        decoder_control(PAN_RIGHT_STOP);
+    }
+    
+    function decoder_control(commandid)
+    {
+            decodercontrol.command.value = commandid;
+            decodercontrol.onestep.value = 1;
+            decodercontrol.submit();
+    }
+    
+    function up_command()
+    {
+        decoder_control(TILT_UP);
+    }
+    
+    function down_command()
+    {
+        decoder_control(TILT_DOWN);
+    }
+    
+    function left_command()
+    {
+        decoder_control(PAN_LEFT);
+    }
+    function right_command()
+    {
+        decoder_control(PAN_RIGHT);
+    }
+    
+    function backtomain()
+    {
+        window.location.href='index.htm';
+    }
+    //-->
+    </script>
+</head>
+
+<body  onload= body_onload()>
+    
+<form action="http://192.168.1.56:1025/camera_control.cgi" method="get"  name="cameracontrol" target= "hideframe" >
+    <input type="hidden" name="param">
+    <input type="hidden" name="value">
+</form>
+
+<form action="http://192.168.1.56:1025/decoder_control.cgi" method="get"  name="decodercontrol" target="hideframe" >
+	<input type="hidden" name="command">
+	<input type="hidden" name="onestep">
+</form>
+    
+<img id="imgDisplay"  alt=video src="" onload="load_video()">
+</body>
+</html>

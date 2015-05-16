@@ -9,7 +9,7 @@ sitemap demo label="Mi Casa"
 
 			Frame label="Multimedia Widgets" {
 				Video item=VideoPTZ1 url="http://admin:123456@192.168.0.29:1025/videostream.cgi?rate=0" encoding="mjpeg"
-				Webview item=VideoWeb url="http://admin:123456@192.168.0.29:1025/mobile.html" height=270
+				Webview item=VideoWeb url="https://localhost:8080/static/webcam.html"  height=12
 			}
 		}
 		
