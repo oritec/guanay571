@@ -11,7 +11,7 @@ sitemap demo label="Mi Casa"
 				//Webview item=VideoWeb url="http://192.168.1.42/webcam.html"  height=72
 				Selection item=Webcam icon="webcam" mappings=[0=off, 1=Webcam]
 				
-				Image url="" visibility=[Webcam!=O]
+				Image url="" visibility=[Webcam!=0]
 			}
 		}
 		
