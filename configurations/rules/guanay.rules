@@ -4,10 +4,17 @@ import org.openhab.model.script.actions.*
 
 rule "Select Webcam"
 	when
-		Item Webcam received command
+		Item Webcam received command 
 	then
 		switch(receivedCommand) {
 			case 0 : logInfo("org.openhab", "Receive 0")
 			case 1 : logInfo("org.openhab", "Receive 1")
 		}
 end
+
+rule "Change Multimedia"
+	when Item Multimedia changed
+	then
+		logInfo("org.openhab","Multimedia Changed")
+end
+		
