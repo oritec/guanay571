@@ -7,7 +7,7 @@ sitemap demo label="Mi Casa"
 	Frame label="Multimedia" {
 		Text label="Multimedia" icon="video" {
 			Frame {  
-               Video url="http://localhost:8081" encoding="mjpeg"  
+               Video url="http://localhost" encoding="mjpeg"  
           	}  
 		}
 		
