@@ -13,7 +13,7 @@ rule "Select Webcam"
 end
 
 rule "Change Multimedia"
-	when Item Multimedia changed
+	when Item Multimedia received command 
 	then
 		logInfo("org.openhab","Multimedia Changed")
 end
